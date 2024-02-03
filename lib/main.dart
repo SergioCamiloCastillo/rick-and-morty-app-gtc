@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty_app_gtc/config/router/app_router.dart';
+import 'package:rick_and_morty_app_gtc/config/theme/app_theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: appRouter,
+      title: 'Rick and Morty App GTC',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme().theme,
     );
   }
 }
