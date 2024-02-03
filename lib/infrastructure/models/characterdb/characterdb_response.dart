@@ -38,8 +38,8 @@ class Info {
   factory Info.fromJson(Map<String, dynamic> json) => Info(
         count: json["count"],
         pages: json["pages"],
-        next: json["next"],
-        prev: json["prev"],
+        next: json["next"] ?? '',
+        prev: json["prev"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
