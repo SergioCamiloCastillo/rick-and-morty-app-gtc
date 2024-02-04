@@ -12,12 +12,17 @@ typedef CharacterCallback = Future<List<CharacterEntity>> Function({int page});
 
 class CharactersNotifier extends StateNotifier<List<CharacterEntity>> {
   int currentPage = 0;
+  bool isLoading = false;
   CharacterCallback fetchMoreCharacters;
+
   CharactersNotifier({required this.fetchMoreCharacters}) : super([]);
   Future<void> loadNextPage() async {
+    if (isLoading) return;
+    isLoading = true;
     currentPage++;
     final List<CharacterEntity> characters =
         await fetchMoreCharacters(page: currentPage);
     state = [...state, ...characters];
+    isLoading = false;
   }
 }

@@ -10,4 +10,14 @@ class CharacterRepositoryImpl extends CharactersRepository {
   Future<List<CharacterEntity>> getNowCharacters({int page = 1}) {
     return datasource.getNowCharacters(page: page);
   }
+
+  @override
+  Future<CharacterEntity> getCharacterById(String characterId) {
+    return datasource.getCharacterById(characterId);
+  }
+
+  @override
+  Future<List<CharacterEntity>> searchCharacters(String query) {
+    return datasource.searchCharacters(query);
+  }
 }

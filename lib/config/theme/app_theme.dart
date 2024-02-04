@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   ThemeData get theme {
-    Color appColorSeed = const Color(0xff033E46); // Color rojo para el AppBar
+    Color appColorSeed = const Color(0xff033E46); 
     Color colorTextDefault = Colors.white;
     return ThemeData(
         useMaterial3: true,
@@ -30,7 +30,7 @@ class AppTheme {
                 //h4
                 headlineMedium: TextStyle(
                     fontFamily: 'ProximaNova',
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold),
                 //h5
                 headlineSmall: TextStyle(
@@ -63,7 +63,7 @@ class AppTheme {
                 //body2,
                 bodyMedium: TextStyle(
                     fontFamily: 'ProximaNova',
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: FontWeight.normal))
             .apply(
           bodyColor: colorTextDefault,
