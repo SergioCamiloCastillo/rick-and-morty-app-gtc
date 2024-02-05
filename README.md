@@ -13,8 +13,14 @@ Una aplicación Flutter que muestra información sobre personajes de Rick and Mo
 | Paginación                  | Scroll infinito para cargar más personajes de forma paginada.|
 | Búsqueda de personajes      | Busca personajes por nombre.   
 
+## Capturas de pantalla
+![Captura de pantalla 2024-02-04 a la(s) 11 52 46 p  m](https://github.com/SergioCamiloCastillo/rick-and-morty-app-gtc/assets/26844982/5ae022b1-79f5-456d-8d51-27dd7c6341ab)
+![Captura de pantalla 2024-02-04 a la(s) 11 54 26 p  m](https://github.com/SergioCamiloCastillo/rick-and-morty-app-gtc/assets/26844982/cd8cf7c4-f82e-48ff-bdf5-d2a1ee7a79d8)
+![Captura de pantalla 2024-02-04 a la(s) 11 53 54 p  m](https://github.com/SergioCamiloCastillo/rick-and-morty-app-gtc/assets/26844982/903d791c-2321-4a2f-b506-b8657a45f15a)
+
 
 ## Requisitos Previos ##
+
 Asegúrate de tener instalados los siguientes requisitos previos antes de comenzar:
 
 * Flutter SDK
