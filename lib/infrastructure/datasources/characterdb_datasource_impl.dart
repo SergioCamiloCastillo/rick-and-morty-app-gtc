@@ -52,14 +52,21 @@ class CharacterDBDatasource extends CharactersDatasource {
       }
     }
   }
-  
-  @override
-  Future<List<CharacterEntity>> searchCharacters(String query)async {
-    //HAY QUE CAMBIAR ESTO
-    final response = await dio.get('?name=$query');
-    return (response.data['results'] as List)
-        .map((item) => CharacterMapper.characterDBToEntity(item))
+
+  List<CharacterEntity> _jsonToCharacters(Map<String, dynamic> json) {
+    final characterDBResponse = CharacterDbResponse.fromJson(json);
+
+    final List<CharacterEntity> characters = characterDBResponse.results
+        .map((characterDB) => CharacterMapper.characterDBToEntity(characterDB))
         .toList();
-    
+
+    return characters;
+  }
+
+  @override
+  Future<List<CharacterEntity>> searchCharacters(String query) async {
+    if (query.isEmpty) return [];
+    final response = await dio.get('/?name=$query');
+    return _jsonToCharacters(response.data);
   }
 }

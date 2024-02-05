@@ -49,11 +49,13 @@ class _CharacterVerticalListViewState
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: ListView.separated(
-          controller: scrollController,
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 15,
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 15.0,
+            mainAxisSpacing: 15.0,
           ),
+          controller: scrollController,
           itemCount: widget.characters.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
@@ -62,43 +64,72 @@ class _CharacterVerticalListViewState
               onTap: () => context.push("/character/${character.id}"),
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                      8.0), // Ajusta el radio según tus preferencias
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
                 color: const Color(0xFF26565E),
-                child: ListTile(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                  title: Text(character.name,
-                      style: Theme.of(context).textTheme.headlineMedium),
-                  subtitle: Row(
-                    children: [
-                      PointStatus(
-                        color: character.status == 'Alive'
-                            ? Colors.green
-                            : Colors.red,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        character.name,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(character.status == 'Alive' ? 'Vivo' : 'Muerto',
-                          style: Theme.of(context).textTheme.headlineSmall),
-                    ],
-                  ),
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      character.imageUrl,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress != null) {
-                          return const CircularProgressIndicator(
-                            color: Colors.white,
-                          );
-                        }
-                        return FadeIn(child: child);
-                      },
                     ),
-                  ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        PointStatus(
+                          color: character.status == 'Alive'
+                              ? Colors.green
+                              : Colors.red,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          character.status == 'Alive' ? 'Vivo' : 'Muerto',
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              character.imageUrl,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress != null) {
+                                  return const AspectRatio(
+                                    aspectRatio:
+                                        1.0, // Establece la relación de aspecto deseada
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: CircularProgressIndicator(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                return FadeIn(child: child);
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );

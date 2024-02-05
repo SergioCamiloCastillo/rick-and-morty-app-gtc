@@ -1,3 +1,1 @@
-# rick_and_morty_app_gtc
-
-A new Flutter project.
+![Build](https://github.com/SergioCamiloCastillo/https://github.com/SergioCamiloCastillo/shop-teslo-flutter/actions/workflows/build.yml/badge.svg)

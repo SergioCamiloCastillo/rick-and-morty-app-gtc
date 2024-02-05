@@ -10,14 +10,13 @@ final characterInfoProvider =
       getCharacter: characterRespository.getCharacterById);
 });
 
-typedef GetMovieCallback = Future<CharacterEntity> Function(String characterId);
+typedef GetCharacterCallback = Future<CharacterEntity> Function(String characterId);
 
 class CharacterMapNotifier extends StateNotifier<Map<String, CharacterEntity>> {
-  final GetMovieCallback getCharacter;
+  final GetCharacterCallback getCharacter;
   CharacterMapNotifier({required this.getCharacter}) : super({});
   Future<void> loadCharacter(String characterId) async {
     if (state[characterId] != null) return;
-    print('realizando peticion id');
     final character = await getCharacter(characterId);
     state = {...state, characterId: character};
   }
