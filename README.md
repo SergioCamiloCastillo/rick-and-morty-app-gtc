@@ -52,8 +52,6 @@ Asegúrate de tener instalados los siguientes requisitos previos antes de comenz
 | flutter_riverpod    | Proveedor de estado para Flutter fácil de usar, conciso y completamente compatible con el árbol de widgets de Flutter.                                          | [flutter_riverpod](https://pub.dev/packages/flutter_riverpod) |
 | go_router           | Enrutador de navegación simple pero poderoso para Flutter que facilita la navegación y la gestión de rutas en la aplicación.                                      | [go_router](https://pub.dev/packages/go_router) |
 | skeletonizer        | Librería que permite crear esqueletos de carga (skeletons) para indicar visualmente la carga de contenido en una aplicación.                                     | [skeletonizer](https://pub.dev/packages/skeletonizer) |
-| flutter_test        | Biblioteca de pruebas para Flutter que proporciona herramientas y utilidades para escribir y ejecutar pruebas unitarias y de integración.                          | [flutter_test](https://flutter.dev/docs/testing) |
-| flutter_lints       | Conjunto de reglas de análisis estático para Dart y Flutter que ayuda a mantener un código limpio y consistente.                                                 | [flutter_lints](https://pub.dev/packages/flutter_lints) |
 
 ## Arquitectura implementada
 
