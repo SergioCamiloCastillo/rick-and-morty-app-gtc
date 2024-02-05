@@ -1,1 +1,1 @@
-![Build](https://github.com/SergioCamiloCastillo/https://github.com/SergioCamiloCastillo/shop-teslo-flutter/actions/workflows/build.yml/badge.svg)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
